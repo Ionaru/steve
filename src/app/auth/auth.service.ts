@@ -65,7 +65,7 @@ export class AuthService {
         }
 
         const auth = JSON.parse(token) as IAuthResponseData;
-        const jwt = jwt_decode(auth.access_token) as IJWTToken;
+        const jwt = jwt_decode<IJWTToken>(auth.access_token);
 
         const maxExpiryTime = (Date.now() / 1000) + 60; // Now + one minute.
 
@@ -87,7 +87,7 @@ export class AuthService {
         }
 
         const auth = JSON.parse(token) as IAuthResponseData;
-        const jwt = jwt_decode(auth.access_token) as IJWTToken;
+        const jwt = jwt_decode<IJWTToken>(auth.access_token);
 
         const maxRefreshTokenAge = (Date.now() / 1000) - 2592000; // Now - 30 days.
 
