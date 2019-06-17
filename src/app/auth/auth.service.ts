@@ -38,7 +38,7 @@ export class AuthService {
         const params = new HttpParams()
             .set('response_type', 'code')
             .set('redirect_uri', encodeURI(environment.ssoCallbackURL))
-            .set('client_id', '28ea0d4ef8ca4465962e37304a3d695a')
+            .set('client_id', AuthService.clientID)
             .set('scope', 'esi-location.read_online.v1')
             .set('code_challenge', encodedHash)
             .set('code_challenge_method', 'S256')
@@ -96,6 +96,9 @@ export class AuthService {
 
     // private static refreshInterval;
 
+    private static defaultHeaders = {'Content-Type': 'application/x-www-form-urlencoded'};
+    private static clientID = '28ea0d4ef8ca4465962e37304a3d695a';
+
     private static createRandomString(bytes: number) {
         const thing = new Uint8Array(bytes);
         return String.fromCharCode(...crypto.getRandomValues(thing));
@@ -118,11 +121,11 @@ export class AuthService {
         const body = new HttpParams()
             .set('grant_type', 'authorization_code')
             .set('code', code)
-            .set('client_id', '28ea0d4ef8ca4465962e37304a3d695a')
+            .set('client_id', AuthService.clientID)
             .set('code_verifier', codeVerifier);
 
         return this.http.post<any>('https://login.eveonline.com/v2/oauth/token', body, {
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            headers: AuthService.defaultHeaders,
         }).toPromise<IAuthResponseData>();
     }
 
@@ -130,10 +133,21 @@ export class AuthService {
         const body = new HttpParams()
             .set('grant_type', 'refresh_token')
             .set('refresh_token', refreshToken)
-            .set('client_id', '28ea0d4ef8ca4465962e37304a3d695a');
+            .set('client_id', AuthService.clientID);
 
         return this.http.post<any>('https://login.eveonline.com/v2/oauth/token', body, {
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            headers: AuthService.defaultHeaders,
         }).toPromise<IAuthResponseData>();
+    }
+
+    public async revokeToken(refreshToken: string) {
+        const body = new HttpParams()
+            .set('token', refreshToken)
+            .set('token_type_hint', 'refresh_token')
+            .set('client_id', AuthService.clientID);
+
+        return this.http.post<any>('https://login.eveonline.com/v2/oauth/revoke', body, {
+            headers: AuthService.defaultHeaders,
+        }).toPromise<undefined>();
     }
 }

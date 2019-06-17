@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AuthService } from '../auth/auth.service.js';
+import { AuthService, IAuthResponseData } from '../auth/auth.service.js';
 
 @Component({
     selector: 'app-home',
@@ -8,6 +8,8 @@ import { AuthService } from '../auth/auth.service.js';
     templateUrl: './home.component.html',
 })
 export class HomeComponent {
+
+    constructor(private readonly authService: AuthService) { }
 
     public async doAuth() {
 
@@ -29,4 +31,19 @@ export class HomeComponent {
         return false;
     }
 
+    public async revokeAuth() {
+        const token = sessionStorage.getItem('token');
+
+        const auth = JSON.parse(token) as IAuthResponseData;
+        this.authService.revokeToken(auth.refresh_token).then();
+    }
+
+    public async refreshToken() {
+        const token = sessionStorage.getItem('token');
+
+        const auth = JSON.parse(token) as IAuthResponseData;
+        this.authService.refreshToken(auth.refresh_token).then().catch(() => {
+            sessionStorage.removeItem('token');
+        });
+    }
 }

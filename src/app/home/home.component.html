@@ -1,1 +1,3 @@
 <button *ngIf="!authValid()" (click)="doAuth().then()">AUTH</button>
+<button *ngIf="authValid()" (click)="revokeAuth().then()">REVOKE</button>
+<button *ngIf="authValid()" (click)="refreshToken().then()">REFRESH</button>
