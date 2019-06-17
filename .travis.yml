@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+    - '12'
+
+jobs:
+    include:
+        - stage: Deploy
+          language: bash
+          script: skip
+          deploy:
+              - provider: script
+                script: bash deploy.sh Steve_Deploy $API_TOKEN
+                on:
+                    branch: master
+                    repo: Ionaru/steve
+
+env:
+    global:
+        - secure: ZNDuZPEPiIkyWHGNs9EJLBiKNy5Mi2eZ3h/UvFT+IidVRCYiX2yW+FEXk0GsKY/MV4O0ONA/7thIm2xdojGieYNToHh0uRzdulbu0BAaO4D7FWc/tCWigFVJWoljgd6imD9VC3o70tyLpGj6Wvc1pT2pY+i8GNISYPob9Qj1qYUb6O1AT3C1taBLCj5ulhuftbI/fuDlgOZpKAyrDUuaKJlyJElmbdM+spQk4XLHX/lfZNPtZVV4otbZqMz4ybGh4NeNcVh4Qh9GnQLC0riJFMP/guSD37sZplNmg4vDBe1B4pcaKSAhPN+U/f2G/vXQAMTQS5Mj4x/65gCZU89xHm0CdPzeqt0vnbHZ3mVGP4GX9NzQgJM10+bXkyUv2i9ztwpVpdsFnLqIX8prdNN4s5boiDAwY65w6ui3GdMy428v0rKws8kiwk03t/PyLYwCA8PzOwAmAnGVr4S3tO9x1Uou5YicD6wS5dz4Dxe34VLJqrca3Pt9UnbOtujJ7/BMfoF3gvFX8rKAp20oGUKSrVTTlWrPfTfGcKNwM3b9Hb2sAhKXlWFH4anFnmLA23eIo7LNhg2bImI5liGKvqC4GH2HgfWkCh7BRlcDdv7AzaFU8LxkaDIg6Qr24PXgHb6CFjepsajs1d4eXLmAhufCkwO//p5jViVGmsv3TXKw7SA=
+        - secure: feYBVoh9nLgysxrF7axU+8DAshCrB0CLQXdQyp15oNGwBH/7ooV+V+AKlRlyJP7JUdFS3NwYDx9bfjClTLKEe7LTUcp2HK9roNC6MlXATUcAykYILg28yYydiSpe9VnGlpHqLgVglrX8fLMVPzyN1PQuUFj7PbH+24l6sxYggVZmu/eisHOp4QoHSpxvGDStTbUk1rrQp63DMANcIMDdoWETQe3n1pxvPaUqw/nqo4DzStyngG9gY8t7cGR7CL4VfqFFv5VojRvdpB/ATN4BH/MhhESlpospvm2Ad6sy1Dg/UvVY0ryfm+b/aJNxqPuW5ovgLzv8CLvkE1tYckdfOr3wW8H+dGrXGWA0EjvUWwYGxIw7NtsRBQFLwrSLr/Bi1Qn4C/4/vqaFDo/DM/ft8fEZupADkQZGcyOJoq9VNxsAMOwaFON78zjByFGnaGtGjsYpLvsAQFF0qT0dqHdYx6nRF6kPHYK1h7KrMWa04A+NLx0EpKvOidhPbsXP9XG3TuYKSVsW3X60iJxEChdyhGQDhpMBYrgAufUwzCbHquCwTLdgb9VydtiTNCc4X+D2ugtvCGbbH7nDB9W0stLBHKSZ2mBxnlRRolih59Wd7KxRgdJ1CUOLaASCeq71AoB2m9zL+5r3TqAzsdYuosK73QcNzyjtytRCQ6RNzuc+/gg=
