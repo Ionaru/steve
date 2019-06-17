@@ -1,0 +1,20 @@
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.code-workspace
+
+# Main files
+*.log
+.env
+
+# Application files
+/dist/
+/node_modules/
+
+# System files
+*.db
+.DS_Store
+
+# Node/Npm files
+npm-debug.log*
