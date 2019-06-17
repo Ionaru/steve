@@ -1,5 +1,1 @@
-<p>
-    home works!
-</p>
-
-<button (click)="doAuth().then()">AUTH</button>
+<button *ngIf="!authValid()" (click)="doAuth().then()">AUTH</button>

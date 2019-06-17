@@ -1,3 +1,9 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import * as jwt_decode from 'jwt-decode';
+
+import { environment } from '../../environments/environment.js';
+
 export interface IJWTToken {
     scp: string[] | string;
     jti: string;
@@ -16,10 +22,6 @@ export interface IAuthResponseData {
     expires_in: number;
     refresh_token: string;
 }
-
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.js';
 
 @Injectable({
     providedIn: 'root',
@@ -48,6 +50,48 @@ export class AuthService {
             encodedRandomString,
             redirectUrl,
         };
+    }
+
+    /**
+     * Checks if a auth token is still valid.
+     *
+     * Not valid if:
+     * - No token saved.
+     * - Token expiry is less than one minute from now.
+     */
+    public static isAuthValid(token?: string): boolean {
+        if (!token) {
+            return false;
+        }
+
+        const auth = JSON.parse(token) as IAuthResponseData;
+        const jwt = jwt_decode(auth.access_token) as IJWTToken;
+
+        const maxExpiryTime = (Date.now() / 1000) + 60; // Now + one minute.
+
+        return (jwt.exp > maxExpiryTime);
+    }
+
+    /**
+     * Checks if a refresh token is still valid.
+     *
+     * Not valid if:
+     * - No token saved.
+     * - Token expiry is more than 30 days ago.
+     *
+     * NOTE: Does not consider revocation of the refresh token.
+     */
+    public static isRefreshValid(token?: string) {
+        if (!token) {
+            return false;
+        }
+
+        const auth = JSON.parse(token) as IAuthResponseData;
+        const jwt = jwt_decode(auth.access_token) as IJWTToken;
+
+        const maxRefreshTokenAge = (Date.now() / 1000) - 2592000; // Now - 30 days.
+
+        return jwt.exp > maxRefreshTokenAge;
     }
 
     // private static refreshInterval;

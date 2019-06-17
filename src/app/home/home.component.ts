@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { AuthService } from '../auth/auth.service.js';
 
 @Component({
@@ -15,6 +16,17 @@ export class HomeComponent {
         sessionStorage.setItem('challenge', encodedRandomString);
 
         window.location.href = redirectUrl;
+    }
+
+    public authValid() {
+        const token = sessionStorage.getItem('token');
+
+        if (AuthService.isAuthValid(token)) {
+            return true;
+        }
+
+        sessionStorage.removeItem('token');
+        return false;
     }
 
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as jwt_decode from 'jwt-decode';
 
-import { IJWTToken } from './auth/auth.service.js';
+import { AuthService } from './auth/auth.service.js';
 
 @Component({
     selector: 'app-root',
@@ -9,22 +8,16 @@ import { IJWTToken } from './auth/auth.service.js';
     templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
-    public title = 'steve';
+    public title = 'STEVE';
 
     public async ngOnInit() {
         const token = sessionStorage.getItem('token');
 
-        if (!token) {
+        if (AuthService.isAuthValid(token)) {
             return;
         }
 
-        const jwt = jwt_decode<IJWTToken>(token);
-
-        const maxExpiryTime = (Date.now() / 1000) + 60;
-
-        if (jwt.exp < maxExpiryTime) {
-            sessionStorage.removeItem('token');
-            return;
-        }
+        sessionStorage.removeItem('token');
+        return;
     }
 }
