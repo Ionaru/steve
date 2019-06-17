@@ -53,7 +53,8 @@ export class AuthService {
     // private static refreshInterval;
 
     private static createRandomString(bytes: number) {
-        return String.fromCharCode(...crypto.getRandomValues(new Uint8Array(bytes)));
+        const thing = new Uint8Array(bytes);
+        return String.fromCharCode(...crypto.getRandomValues(thing));
     }
 
     private static base64urlEncode(str: string) {

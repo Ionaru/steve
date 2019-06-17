@@ -5,6 +5,7 @@
         "outDir": "./out-tsc/app",
         "sourceMap": true,
         "declaration": false,
+        "downlevelIteration": true,
         "module": "esnext",
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
@@ -16,16 +17,14 @@
         ],
         "types": [],
         "lib": [
+            "dom",
+            "es2017",
             "es2018",
-            "dom"
+            "esnext"
         ]
     },
     "include": [
         "src/**/*.ts"
-    ],
-    "exclude": [
-        "src/test.ts",
-        "src/**/*.spec.ts"
     ],
     "angularCompilerOptions": {
         "enableIvy": true

@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+    client:
+        build:
+            context: ./
+            args:
+                FA_TOKEN: ${STEVE_FA_TOKEN}
+                STEVE_ENV: ${STEVE_ENV:-""}
+        env_file:
+            - .env
+        restart: unless-stopped
+        ports:
+            - "${STEVE_PORT:-80}:80"
