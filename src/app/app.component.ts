@@ -11,8 +11,6 @@ import { IJWTToken } from './auth/auth.service.js';
 export class AppComponent implements OnInit {
     public title = 'steve';
 
-    constructor() {}
-
     public async ngOnInit() {
         const token = sessionStorage.getItem('token');
 
@@ -28,7 +26,5 @@ export class AppComponent implements OnInit {
             sessionStorage.removeItem('token');
             return;
         }
-
-        console.log(jwt);
     }
 }

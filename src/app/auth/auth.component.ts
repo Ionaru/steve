@@ -1,12 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './auth.service.js';
 
 @Component({
     selector: 'app-auth',
-    styleUrls: ['./auth.component.scss'],
-    templateUrl: './auth.component.html',
+    template: ``,
 })
 export class AuthComponent implements OnInit {
 
@@ -15,7 +13,6 @@ export class AuthComponent implements OnInit {
     constructor(
         private readonly authService: AuthService,
         private readonly route: ActivatedRoute,
-        private readonly http: HttpClient,
         private readonly router: Router,
     ) { }
 
