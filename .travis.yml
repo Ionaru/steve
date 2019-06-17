@@ -1,9 +1,9 @@
-language: node_js
-node_js:
-    - '12'
-
 jobs:
     include:
+        - stage: Test
+          language: node_js
+          node_js: '12'
+
         - stage: Deploy
           language: bash
           script: skip
