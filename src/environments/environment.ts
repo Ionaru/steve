@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+    clientID: '28ea0d4ef8ca4465962e37304a3d695a',
     production: false,
     ssoCallbackURL: 'http://localhost:4200/auth',
 };
