@@ -3,7 +3,7 @@
 apiKey=$2
 buildType=$1
 
-url="http://85.25.237.10:6400/app/rest/buildQueue"
+url="https://teamcity.saturnserver.org/app/rest/buildQueue"
 data="<build><buildType id=\"${buildType}\"/></build>"
 authHeader="Authorization: Bearer ${apiKey}"
 contentHeader="Content-Type: application/xml"
