@@ -36,6 +36,7 @@ export class HomeComponent {
 
         const auth = JSON.parse(token) as IAuthResponseData;
         this.authService.revokeToken(auth.refresh_token).then();
+        sessionStorage.removeItem('token');
     }
 
     public async refreshToken() {
