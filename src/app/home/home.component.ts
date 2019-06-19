@@ -13,9 +13,10 @@ export class HomeComponent {
 
     public async doAuth() {
 
-        const {encodedRandomString, redirectUrl} = await AuthService.startAuth();
+        const {encodedRandomString, redirectUrl, state} = await AuthService.startAuth();
 
         sessionStorage.setItem('challenge', encodedRandomString);
+        sessionStorage.setItem('state', state);
 
         window.location.href = redirectUrl;
     }

@@ -29,11 +29,14 @@ export interface IAuthResponseData {
 export class AuthService {
 
     public static async startAuth() {
-        const randomString = AuthService.createRandomString(32);
-        const encodedRandomString = AuthService.base64urlEncode(randomString);
+        const randomChallengeString = AuthService.createRandomString(32);
+        const encodedRandomString = AuthService.base64urlEncode(randomChallengeString);
 
         const hashedString = await AuthService.hashSHA256(encodedRandomString);
         const encodedHash = AuthService.base64urlEncode(hashedString);
+
+        const randomStateString = AuthService.createRandomString(32);
+        const state = AuthService.base64urlEncode(randomStateString);
 
         const params = new HttpParams()
             .set('response_type', 'code')
@@ -42,13 +45,14 @@ export class AuthService {
             .set('scope', 'esi-location.read_online.v1')
             .set('code_challenge', encodedHash)
             .set('code_challenge_method', 'S256')
-            .set('state', '123456');
+            .set('state', state);
 
         const redirectUrl = 'https://login.eveonline.com/v2/oauth/authorize/?' + params.toString();
 
         return {
             encodedRandomString,
             redirectUrl,
+            state,
         };
     }
 

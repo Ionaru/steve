@@ -8,8 +8,6 @@ import { AuthService } from './auth.service.js';
 })
 export class AuthComponent implements OnInit {
 
-    public code: string;
-
     constructor(
         private readonly authService: AuthService,
         private readonly route: ActivatedRoute,
@@ -17,10 +15,18 @@ export class AuthComponent implements OnInit {
     ) { }
 
     public async ngOnInit() {
-        this.code = this.route.snapshot.queryParamMap.get('code');
+        const state = this.route.snapshot.queryParamMap.get('code');
+        const savedState = sessionStorage.getItem('state');
+
+        if (state !== savedState) {
+            this.router.navigate(['/']).then();
+        }
+        sessionStorage.removeItem('state');
+
+        const code = this.route.snapshot.queryParamMap.get('code');
         const encodedRandomString = sessionStorage.getItem('challenge');
 
-        const token = await this.authService.getAuthToken(this.code, encodedRandomString);
+        const token = await this.authService.getAuthToken(code, encodedRandomString);
 
         sessionStorage.setItem('token', JSON.stringify(token));
         sessionStorage.removeItem('challenge');
