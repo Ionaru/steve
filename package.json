@@ -11,6 +11,7 @@
     },
     "private": true,
     "dependencies": {
+        "@angular-mdc/web": "^1.0.5",
         "@angular/animations": "^8.0.1",
         "@angular/common": "^8.0.1",
         "@angular/compiler": "^8.0.1",
@@ -19,7 +20,12 @@
         "@angular/platform-browser": "^8.0.1",
         "@angular/platform-browser-dynamic": "^8.0.1",
         "@angular/router": "^8.0.1",
+        "@fortawesome/angular-fontawesome": "^0.4.0",
+        "@fortawesome/fontawesome-svg-core": "^1.2.19",
+        "@fortawesome/pro-regular-svg-icons": "^5.9.0",
         "jwt-decode": "^2.2.0",
+        "material-components-web": "^2.3.1",
+        "normalize.css": "^8.0.1",
         "rxjs": "^6.5.2",
         "tslib": "^1.9.0",
         "zone.js": "~0.9.1"
@@ -36,6 +42,6 @@
         "tslint": "^5.17.0",
         "tslint-angular": "^3.0.2",
         "tslint-sonarts": "^1.9.0",
-        "typescript": "^3.5.2"
+        "typescript": "<3.5.0"
     }
 }

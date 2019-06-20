@@ -27,6 +27,6 @@
         "src/**/*.ts"
     ],
     "angularCompilerOptions": {
-        "enableIvy": true
+        "enableIvy": false
     }
 }

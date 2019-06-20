@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+$mdc-theme-primary: #1565c0; // primary color example
+$mdc-theme-secondary: #388e3c; // secondary color example
+
+@import "~normalize.css/normalize.css";
+@import "~@angular-mdc/theme/material";
+
+.mdc-button .mdc-button__icon {
+    height: 20px;
+}
+
+.demo-drawer-app-content {
+    overflow: hidden;
+    position: relative;
+    padding-top: $mdc-top-app-bar-dense-row-height;
+}

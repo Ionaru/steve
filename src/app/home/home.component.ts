@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { faKey } from '@fortawesome/pro-regular-svg-icons';
+import { AppComponent } from '../app.component.js';
 
 import { AuthService, IAuthResponseData } from '../auth/auth.service.js';
 
@@ -7,7 +9,9 @@ import { AuthService, IAuthResponseData } from '../auth/auth.service.js';
     styleUrls: ['./home.component.scss'],
     templateUrl: './home.component.html',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+    public someIcon = faKey;
 
     constructor(private readonly authService: AuthService) { }
 
@@ -47,5 +51,9 @@ export class HomeComponent {
         this.authService.refreshToken(auth.refresh_token).then().catch(() => {
             sessionStorage.removeItem('token');
         });
+    }
+
+    public ngOnInit() {
+        AppComponent.validateAuth();
     }
 }

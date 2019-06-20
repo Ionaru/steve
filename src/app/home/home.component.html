@@ -1,3 +1,9 @@
-<button *ngIf="!authValid()" (click)="doAuth().then()">AUTH</button>
-<button *ngIf="authValid()" (click)="revokeAuth().then()">REVOKE</button>
-<button *ngIf="authValid()" (click)="refreshToken().then()">REFRESH</button>
+<button *ngIf="!authValid()" mdc-button primary (click)="doAuth().then()">
+    <mdc-icon><fa-icon [icon]="someIcon"></fa-icon></mdc-icon>
+    Auth
+</button>
+
+<button *ngIf="authValid()" mdc-button (click)="refreshToken().then()">
+    <mdc-icon><fa-icon [icon]="someIcon"></fa-icon></mdc-icon>
+    Refresh
+</button>

@@ -1,5 +1,33 @@
-<div style="text-align:center">
-    <h1>Welcome to {{ title }}!</h1>
-    <p>The interstellar agency of Sightseeing and Travel in the EVE Universe.</p>
+<mdc-top-app-bar dense fixed [scrollTarget]="fixedContent">
+    <mdc-top-app-bar-row>
+        <mdc-top-app-bar-section align="start" title="STEVE">
+            <button mdcTopAppBarNavIcon>
+                <mdc-icon><fa-icon [icon]="homeIcon" [size]="'lg'"></fa-icon></mdc-icon>
+            </button>
+        </mdc-top-app-bar-section>
+        <mdc-top-app-bar-section align="end">
+<!--            <mdc-icon mdcTopAppBarActionItem><fa-icon [icon]="homeIcon" [size]="'lg'"></fa-icon></mdc-icon>-->
+<!--            <mdc-icon mdcTopAppBarActionItem><fa-icon [icon]="tripsIcon" [size]="'lg'"></fa-icon></mdc-icon>-->
+<!--            <span>{{ authValid ? 'Something' : 'Not logged in' }}</span>-->
+            <mdc-icon mdcTopAppBarActionItem (click)="authValid ? (profileMenu.open = !profileMenu.open) : doAuth().then()">
+                <fa-icon [icon]="authValid ? profileActiveIcon : profileIcon" [size]="'lg'"></fa-icon>
+            </mdc-icon>
+
+            <div mdcMenuSurfaceAnchor #menuAnchor>
+                <mdc-menu #profileMenu [anchorElement]="menuAnchor">
+                    <mdc-list>
+<!--                        <mdc-list-item>My Profile</mdc-list-item>-->
+<!--                        <mdc-list-divider></mdc-list-divider>-->
+                        <mdc-list-item (click)="revokeAuth().then()">Revoke</mdc-list-item>
+                    </mdc-list>
+                </mdc-menu>
+            </div>
+        </mdc-top-app-bar-section>
+    </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+<div class="demo-drawer-app-content" #fixedContent style="text-align:center">
+    <h1>Welcome to STEVE!</h1>
+    <p>The interstellar agency of Sightseeing and Travel in the EVE Universe!</p>
     <router-outlet></router-outlet>
 </div>
