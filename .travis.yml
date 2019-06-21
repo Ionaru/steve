@@ -3,7 +3,7 @@ jobs:
         - stage: Test
           language: node_js
           node_js: '12'
-          after_failure: cat /home/travis/.npm/_logs/*-debug.log
+          install: npm ci || cat /home/travis/.npm/_logs/*-debug.log
 
         - stage: Deploy
           language: bash
