@@ -113,8 +113,8 @@ export class AuthService {
     ];
 
     private static createRandomString(bytes: number) {
-        const thing = new Uint8Array(bytes);
-        return String.fromCharCode(...crypto.getRandomValues(thing));
+        const bytesArray = new Uint8Array(bytes);
+        return String.fromCharCode(...crypto.getRandomValues(bytesArray));
     }
 
     private static base64urlEncode(str: string) {
