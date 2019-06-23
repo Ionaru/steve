@@ -16,6 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
+import { ShipsComponent } from './ships/ships.component';
+import { TripsComponent } from './trips/trips.component';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -23,6 +25,8 @@ import { HomeComponent } from './home/home.component';
         AppComponent,
         HomeComponent,
         AuthComponent,
+        ShipsComponent,
+        TripsComponent,
     ],
     imports: [
         BrowserModule,
