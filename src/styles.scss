@@ -1,5 +1,5 @@
-$mdc-theme-primary: #1565c0; // primary color example
-$mdc-theme-secondary: #388e3c; // secondary color example
+$mdc-theme-primary: #1565c0;
+$mdc-theme-secondary: #388e3c;
 
 @import "~normalize.css/normalize.css";
 @import "~@angular-mdc/theme/material";
@@ -11,5 +11,6 @@ $mdc-theme-secondary: #388e3c; // secondary color example
 .demo-drawer-app-content {
     overflow: hidden;
     position: relative;
+    //noinspection SassScssUnresolvedVariable
     padding-top: $mdc-top-app-bar-dense-row-height;
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faRocket, faUser, faUserAstronaut } from '@fortawesome/pro-regular-svg-icons';
+import { faBars, faChartNetwork, faHome, faRocket, faUser, faUserAstronaut } from '@fortawesome/pro-regular-svg-icons';
 
 import { AuthService, IAuthResponseData } from './auth/auth.service.js';
 
@@ -29,9 +29,12 @@ export class AppComponent {
         AppComponent.auth = false;
     }
 
-    public homeIcon = faRocket;
+    public homeIcon = faHome;
     public profileIcon = faUser;
     public profileActiveIcon = faUserAstronaut;
+    public menuIcon = faBars;
+    public tripsIcon = faChartNetwork;
+    public shipsIcon = faRocket;
 
     constructor(private readonly authService: AuthService) { }
 

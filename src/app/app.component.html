@@ -1,24 +1,20 @@
 <mdc-top-app-bar dense fixed [scrollTarget]="fixedContent">
     <mdc-top-app-bar-row>
         <mdc-top-app-bar-section align="start" title="STEVE">
-            <button mdcTopAppBarNavIcon>
-                <mdc-icon><fa-icon [icon]="homeIcon" [size]="'lg'"></fa-icon></mdc-icon>
+            <button mdcTopAppBarNavIcon (click)="navDrawer.open = !navDrawer.open">
+                <mdc-icon>
+                    <fa-icon [icon]="menuIcon" [size]="'lg'"></fa-icon>
+                </mdc-icon>
             </button>
         </mdc-top-app-bar-section>
         <mdc-top-app-bar-section align="end">
-<!--            <mdc-icon mdcTopAppBarActionItem><fa-icon [icon]="homeIcon" [size]="'lg'"></fa-icon></mdc-icon>-->
-<!--            <mdc-icon mdcTopAppBarActionItem><fa-icon [icon]="tripsIcon" [size]="'lg'"></fa-icon></mdc-icon>-->
-<!--            <span>{{ authValid ? 'Something' : 'Not logged in' }}</span>-->
             <mdc-icon mdcTopAppBarActionItem (click)="authValid ? (profileMenu.open = !profileMenu.open) : doAuth().then()">
                 <fa-icon [icon]="authValid ? profileActiveIcon : profileIcon" [size]="'lg'"></fa-icon>
             </mdc-icon>
-
             <div mdcMenuSurfaceAnchor #menuAnchor>
                 <mdc-menu #profileMenu [anchorElement]="menuAnchor">
                     <mdc-list>
-<!--                        <mdc-list-item>My Profile</mdc-list-item>-->
-<!--                        <mdc-list-divider></mdc-list-divider>-->
-                        <mdc-list-item (click)="revokeAuth().then()">Revoke</mdc-list-item>
+                        <mdc-list-item (click)="revokeAuth().then()">Log out</mdc-list-item>
                     </mdc-list>
                 </mdc-menu>
             </div>
@@ -26,8 +22,35 @@
     </mdc-top-app-bar-row>
 </mdc-top-app-bar>
 
+<mdc-drawer drawer="modal" #navDrawer>
+    <mdc-drawer-header>
+        <h3 mdcDrawerTitle>Navigation</h3>
+        <h6 mdcDrawerSubtitle>Subtitle</h6>
+    </mdc-drawer-header>
+    <mdc-drawer-content>
+        <mdc-list>
+            <mdc-list-item routerLink="/" routerLinkActive="mdc-list-item--selected" [routerLinkActiveOptions]="{ exact: true }">
+                <mdc-icon mdcListItemGraphic>
+                    <fa-icon [icon]="homeIcon" [size]="'lg'"></fa-icon>
+                </mdc-icon>
+                Moo
+            </mdc-list-item>
+            <mdc-list-item routerLink="trips" routerLinkActive="mdc-list-item--selected">
+                <mdc-icon mdcListItemGraphic>
+                    <fa-icon [icon]="tripsIcon" [size]="'lg'"></fa-icon>
+                </mdc-icon>
+                Trips
+            </mdc-list-item>
+            <mdc-list-item routerLink="ships" routerLinkActive="mdc-list-item--selected">
+                <mdc-icon mdcListItemGraphic>
+                    <fa-icon [icon]="shipsIcon" [size]="'lg'"></fa-icon>
+                </mdc-icon>
+                Ships
+            </mdc-list-item>
+        </mdc-list>
+    </mdc-drawer-content>
+</mdc-drawer>
+
 <div class="demo-drawer-app-content" #fixedContent style="text-align:center">
-    <h1>Welcome to STEVE!</h1>
-    <p>The interstellar agency of Sightseeing and Travel in the EVE Universe!</p>
     <router-outlet></router-outlet>
 </div>

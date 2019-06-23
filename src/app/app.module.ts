@@ -6,6 +6,7 @@ import {
     MdcMenuModule,
     MdcTabBarModule,
     MdcTopAppBarModule,
+    MdcTypographyModule,
 } from '@angular-mdc/web';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -40,6 +41,7 @@ import { TripsComponent } from './trips/trips.component';
         MdcTabBarModule,
         MdcTopAppBarModule,
         FontAwesomeModule,
+        MdcTypographyModule,
     ],
     providers: [],
 })
