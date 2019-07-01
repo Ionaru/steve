@@ -29,19 +29,20 @@
     </mdc-drawer-header>
     <mdc-drawer-content>
         <mdc-list>
-            <mdc-list-item routerLink="/" routerLinkActive="mdc-list-item--selected" [routerLinkActiveOptions]="{ exact: true }">
+            <mdc-list-item [tabIndex]="0" (click)="toggleOpen(navDrawer)" routerLink="/" routerLinkActive="mdc-list-item--selected"
+                           [routerLinkActiveOptions]="{ exact: true }">
                 <mdc-icon mdcListItemGraphic>
                     <fa-icon [icon]="homeIcon" [size]="'lg'"></fa-icon>
                 </mdc-icon>
                 Moo
             </mdc-list-item>
-            <mdc-list-item routerLink="trips" routerLinkActive="mdc-list-item--selected">
+            <mdc-list-item [tabIndex]="1" (click)="toggleOpen(navDrawer)" routerLink="trips" routerLinkActive="mdc-list-item--selected">
                 <mdc-icon mdcListItemGraphic>
                     <fa-icon [icon]="tripsIcon" [size]="'lg'"></fa-icon>
                 </mdc-icon>
                 Trips
             </mdc-list-item>
-            <mdc-list-item routerLink="ships" routerLinkActive="mdc-list-item--selected">
+            <mdc-list-item [tabIndex]="2" (click)="toggleOpen(navDrawer)" routerLink="ships" routerLinkActive="mdc-list-item--selected">
                 <mdc-icon mdcListItemGraphic>
                     <fa-icon [icon]="shipsIcon" [size]="'lg'"></fa-icon>
                 </mdc-icon>

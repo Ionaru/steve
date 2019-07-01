@@ -1,3 +1,4 @@
+import { MdcDrawer } from '@angular-mdc/web';
 import { Component } from '@angular/core';
 import { faBars, faChartNetwork, faHome, faRocket, faUser, faUserAstronaut } from '@fortawesome/pro-regular-svg-icons';
 
@@ -55,5 +56,9 @@ export class AppComponent {
         sessionStorage.setItem('state', state);
 
         window.location.href = redirectUrl;
+    }
+
+    public toggleOpen(navDrawer: MdcDrawer) {
+        setTimeout(() => navDrawer.open = !navDrawer.open, 200);
     }
 }
