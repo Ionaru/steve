@@ -1,3 +1,32 @@
-<p>
-  ships works!
-</p>
+<div id="ships-container">
+    <mdc-card class="demo-card demo-card--photo" *ngFor="let id of [589, 17738, 12729, 17703, 11129, 28850, 20183]">
+        <mdc-card-primary-action (click)="openDialog(id)">
+            <mdc-card-media square class="demo-card__media"
+                            [ngStyle]="{'background-image': 'url(https://image.eveonline.com/Render/' + id + '_512.png)'}">
+                <mdc-card-media-content class="demo-card__media-content--with-title">
+                    <div class="demo-card__media-title" mdcSubtitle2 style="user-select: none">A Ship</div>
+                </mdc-card-media-content>
+            </mdc-card-media>
+        </mdc-card-primary-action>
+        <mdc-card-actions>
+            <mdc-card-action-icons style="justify-content: flex-start;">
+                <button #button mdcIconButton mdcCardAction="icon" (click)="button.setOn(button.on)">
+                    <mdc-icon mdcIconOn>
+                        <fa-icon [icon]="someIcon"></fa-icon>
+                    </mdc-icon>
+                    <mdc-icon>
+                        <fa-icon [icon]="infoIcon"></fa-icon>
+                    </mdc-icon>
+                </button>
+            </mdc-card-action-icons>
+            <mdc-card-action-icons>
+                <button #button mdcIconButton mdcCardAction="icon" (click)="doSave(button, myIcon)">
+                    <mdc-icon class="save-save">
+                        <fa-icon #myIcon [icon]="saveIcon"></fa-icon>
+                    </mdc-icon>
+                </button>
+                <!--            <button mdcIconButton mdcCardAction="icon" icon="share"></button>-->
+            </mdc-card-action-icons>
+        </mdc-card-actions>
+    </mdc-card>
+</div>

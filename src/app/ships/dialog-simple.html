@@ -1,0 +1,20 @@
+<mdc-dialog>
+    <mdc-dialog-container>
+        <mdc-dialog-surface>
+            <mdc-dialog-title>You clicked on this!</mdc-dialog-title>
+            <mdc-dialog-content>
+                <mdc-list avatar>
+                    <mdc-list-item mdcDialogAction="sup" [tabIndex]="0">
+                        <mdc-icon mdcListItemGraphic>rocket</mdc-icon>{{ ship }}
+                    </mdc-list-item>
+<!--                    <mdc-list-item (click)="closeDialog()">-->
+<!--                        <mdc-icon mdcListItemGraphic>person</mdc-icon>user02@gmail.com-->
+<!--                    </mdc-list-item>-->
+<!--                    <mdc-list-item (click)="closeDialog()">-->
+<!--                        <mdc-icon mdcListItemGraphic>add</mdc-icon>add account-->
+<!--                    </mdc-list-item>-->
+                </mdc-list>
+            </mdc-dialog-content>
+        </mdc-dialog-surface>
+    </mdc-dialog-container>
+</mdc-dialog>

@@ -23,10 +23,6 @@
 </mdc-top-app-bar>
 
 <mdc-drawer drawer="modal" #navDrawer>
-    <mdc-drawer-header>
-        <h3 mdcDrawerTitle>Navigation</h3>
-        <h6 mdcDrawerSubtitle>Subtitle</h6>
-    </mdc-drawer-header>
     <mdc-drawer-content>
         <mdc-list>
             <mdc-list-item [tabIndex]="0" (click)="toggleOpen(navDrawer)" routerLink="/" routerLinkActive="mdc-list-item--selected"

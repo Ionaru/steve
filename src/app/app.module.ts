@@ -1,6 +1,9 @@
 import {
     MdcButtonModule,
+    MdcCardModule,
+    MdcDialogModule,
     MdcDrawerModule,
+    MdcIconButtonModule,
     MdcIconModule,
     MdcListModule,
     MdcMenuModule,
@@ -17,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
+import { DialogSimple } from './ships/dialog-simple.js';
 import { ShipsComponent } from './ships/ships.component';
 import { TripsComponent } from './trips/trips.component';
 
@@ -28,13 +32,20 @@ import { TripsComponent } from './trips/trips.component';
         AuthComponent,
         ShipsComponent,
         TripsComponent,
+        DialogSimple,
+    ],
+    entryComponents: [
+        DialogSimple,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         MdcButtonModule,
+        MdcCardModule,
+        MdcDialogModule,
         MdcDrawerModule,
+        MdcIconButtonModule,
         MdcIconModule,
         MdcListModule,
         MdcMenuModule,
