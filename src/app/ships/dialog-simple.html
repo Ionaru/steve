@@ -1,20 +1,46 @@
-<mdc-dialog>
+<mdc-dialog *ngIf="done else loading">
     <mdc-dialog-container>
         <mdc-dialog-surface>
-            <mdc-dialog-title>You clicked on this!</mdc-dialog-title>
+            <mdc-dialog-title>{{ ship.name }}</mdc-dialog-title>
             <mdc-dialog-content>
                 <mdc-list avatar>
                     <mdc-list-item mdcDialogAction="sup" [tabIndex]="0">
-                        <mdc-icon mdcListItemGraphic>rocket</mdc-icon>{{ ship }}
+                        <mdc-icon mdcListItemGraphic>rocket</mdc-icon>
+                        {{ ship | json }}
                     </mdc-list-item>
-<!--                    <mdc-list-item (click)="closeDialog()">-->
-<!--                        <mdc-icon mdcListItemGraphic>person</mdc-icon>user02@gmail.com-->
-<!--                    </mdc-list-item>-->
-<!--                    <mdc-list-item (click)="closeDialog()">-->
-<!--                        <mdc-icon mdcListItemGraphic>add</mdc-icon>add account-->
-<!--                    </mdc-list-item>-->
+                    <mdc-list-item (click)="closeDialog()">
+                        <mdc-icon mdcListItemGraphic>person</mdc-icon>
+                        user02@gmail.com
+                    </mdc-list-item>
+                    <mdc-list-item (click)="closeDialog()">
+                        <mdc-icon mdcListItemGraphic>add</mdc-icon>
+                        add account
+                    </mdc-list-item>
                 </mdc-list>
             </mdc-dialog-content>
         </mdc-dialog-surface>
     </mdc-dialog-container>
 </mdc-dialog>
+
+<ng-template #loading>
+    <mdc-dialog>
+        <mdc-dialog-container>
+            <mdc-dialog-surface>
+                <mdc-dialog-title>
+                    <fa-icon [icon]="loadingIcon" [spin]="true"></fa-icon>
+                    Loading...
+                </mdc-dialog-title>
+                <mdc-dialog-content>
+                    <mdc-list>
+                        <mdc-list-item [tabIndex]="0" (click)="closeDialog()">
+                            <mdc-icon mdcListItemGraphic>
+                                <fa-icon [icon]="closeIcon" [size]="'lg'"></fa-icon>
+                            </mdc-icon>
+                            Close
+                        </mdc-list-item>
+                    </mdc-list>
+                </mdc-dialog-content>
+            </mdc-dialog-surface>
+        </mdc-dialog-container>
+    </mdc-dialog>
+</ng-template>

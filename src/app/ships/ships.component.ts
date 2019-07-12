@@ -38,6 +38,7 @@ export class ShipsComponent {
         });
 
         dialogRef.afterClosed().subscribe((result) => {
+            // tslint:disable-next-line:no-console
             console.log(result);
         });
     }
