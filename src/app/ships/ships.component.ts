@@ -22,12 +22,12 @@ export class ShipsComponent {
         button.setDisabled(true);
 
         myIcon.spin = true;
-        myIcon.iconProp = faCircleNotch;
+        myIcon.icon = faCircleNotch;
         myIcon.ngOnChanges({});
 
         setTimeout(() => {
             myIcon.spin = false;
-            myIcon.iconProp = this.checkIcon;
+            myIcon.icon = this.checkIcon;
             myIcon.ngOnChanges({});
         }, 1500);
     }
