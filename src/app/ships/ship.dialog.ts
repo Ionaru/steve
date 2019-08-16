@@ -5,10 +5,10 @@ import { faCircleNotch, faTimes } from '@fortawesome/pro-regular-svg-icons';
 import { EVE, IUniverseNamesData, IUniverseNamesDataUnit } from '@ionaru/eve-utils';
 
 @Component({
-    templateUrl: 'dialog-simple.html',
+    templateUrl: 'ship.dialog.html',
 })
 // tslint:disable-next-line:component-class-suffix
-export class DialogSimple implements OnInit {
+export class ShipDialog implements OnInit {
 
     public ship: IUniverseNamesDataUnit;
     // public shipId: number;
@@ -19,7 +19,7 @@ export class DialogSimple implements OnInit {
 
     constructor(
         private readonly http: HttpClient,
-        private readonly dialogRef: MdcDialogRef<DialogSimple>,
+        private readonly dialogRef: MdcDialogRef<ShipDialog>,
         @Inject(MDC_DIALOG_DATA) public data: number,
     ) { }
 

@@ -20,7 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
-import { DialogSimple } from './ships/dialog-simple.js';
+import { ShipDialog } from './ships/ship.dialog';
 import { ShipsComponent } from './ships/ships.component';
 import { TripsComponent } from './trips/trips.component';
 
@@ -32,10 +32,10 @@ import { TripsComponent } from './trips/trips.component';
         AuthComponent,
         ShipsComponent,
         TripsComponent,
-        DialogSimple,
+        ShipDialog,
     ],
     entryComponents: [
-        DialogSimple,
+        ShipDialog,
     ],
     imports: [
         BrowserModule,

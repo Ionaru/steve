@@ -2,7 +2,7 @@ import { MdcDialog, MdcIconButton } from '@angular-mdc/web';
 import { Component } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faCheck, faCircle, faCircleNotch, faRocket, faSave } from '@fortawesome/pro-regular-svg-icons';
-import { DialogSimple } from './dialog-simple';
+import { ShipDialog } from './ship.dialog';
 
 @Component({
   selector: 'app-ships',
@@ -33,7 +33,7 @@ export class ShipsComponent {
     }
 
     public openDialog(id: number) {
-        const dialogRef = this.dialog.open(DialogSimple, {
+        const dialogRef = this.dialog.open(ShipDialog, {
             data: id,
         });
 
