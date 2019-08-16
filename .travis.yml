@@ -3,7 +3,6 @@ jobs:
         - stage: Test
           language: node_js
           node_js: '12'
-          install: npm ci || cat /home/travis/.npm/_logs/*-debug.log
 
         - stage: Deploy
           language: bash
