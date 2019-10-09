@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faKey } from '@fortawesome/pro-regular-svg-icons';
-import { AppComponent } from '../app.component.js';
+import { AppComponent } from '../app.component';
 
-import { AuthService, IAuthResponseData } from '../auth/auth.service.js';
+import { AuthService, IAuthResponseData } from '../auth/auth.service';
 
 @Component({
     selector: 'app-home',

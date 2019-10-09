@@ -2,6 +2,7 @@ import { MdcDialog, MdcIconButton } from '@angular-mdc/web';
 import { Component } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faCheck, faCircle, faCircleNotch, faRocket, faSave } from '@fortawesome/pro-regular-svg-icons';
+
 import { ShipDialog } from './ship.dialog';
 
 @Component({
@@ -23,12 +24,12 @@ export class ShipsComponent {
 
         myIcon.spin = true;
         myIcon.icon = faCircleNotch;
-        myIcon.ngOnChanges({});
+        myIcon.render();
 
         setTimeout(() => {
             myIcon.spin = false;
             myIcon.icon = this.checkIcon;
-            myIcon.ngOnChanges({});
+            myIcon.render();
         }, 1500);
     }
 

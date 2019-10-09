@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 
-import { environment } from '../../environments/environment.js';
+import { environment } from '../../environments/environment';
 
 export interface IJWTToken {
     scp: string[] | string;

@@ -3,13 +3,13 @@
         <mdc-top-app-bar-section align="start" title="STEVE">
             <button mdcTopAppBarNavIcon (click)="navDrawer.open = !navDrawer.open">
                 <mdc-icon>
-                    <fa-icon [icon]="menuIcon" [size]="'lg'"></fa-icon>
+                    <fa-icon [icon]="menuIcon"></fa-icon>
                 </mdc-icon>
             </button>
         </mdc-top-app-bar-section>
         <mdc-top-app-bar-section align="end">
             <mdc-icon mdcTopAppBarActionItem (click)="authValid ? (profileMenu.open = !profileMenu.open) : doAuth().then()">
-                <fa-icon [icon]="authValid ? profileActiveIcon : profileIcon" [size]="'lg'"></fa-icon>
+                <fa-icon [icon]="authValid ? profileActiveIcon : profileIcon"></fa-icon>
             </mdc-icon>
             <div mdcMenuSurfaceAnchor #menuAnchor>
                 <mdc-menu #profileMenu [anchorElement]="menuAnchor">

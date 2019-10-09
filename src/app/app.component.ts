@@ -2,7 +2,7 @@ import { MdcDrawer } from '@angular-mdc/web';
 import { Component } from '@angular/core';
 import { faBars, faChartNetwork, faHome, faRocket, faUser, faUserAstronaut } from '@fortawesome/pro-regular-svg-icons';
 
-import { AuthService, IAuthResponseData } from './auth/auth.service.js';
+import { AuthService, IAuthResponseData } from './auth/auth.service';
 
 @Component({
     selector: 'app-root',
