@@ -3,6 +3,7 @@ import {
     MdcCardModule,
     MdcDialogModule,
     MdcDrawerModule,
+    MdcElevationModule,
     MdcIconButtonModule,
     MdcIconModule,
     MdcListModule,
@@ -16,6 +17,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
@@ -33,6 +35,7 @@ import { TripsComponent } from './trips/trips.component';
         ShipsComponent,
         TripsComponent,
         ShipDialog,
+        AboutComponent,
     ],
     entryComponents: [
         ShipDialog,
@@ -45,6 +48,7 @@ import { TripsComponent } from './trips/trips.component';
         MdcCardModule,
         MdcDialogModule,
         MdcDrawerModule,
+        MdcElevationModule,
         MdcIconButtonModule,
         MdcIconModule,
         MdcListModule,

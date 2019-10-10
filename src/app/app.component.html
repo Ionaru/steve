@@ -44,6 +44,12 @@
                 </mdc-icon>
                 Ships
             </mdc-list-item>
+            <mdc-list-item [tabIndex]="3" (click)="toggleOpen(navDrawer)" routerLink="about" routerLinkActive="mdc-list-item--selected">
+                <mdc-icon mdcListItemGraphic>
+                    <fa-icon [icon]="aboutIcon" [size]="'lg'"></fa-icon>
+                </mdc-icon>
+                About
+            </mdc-list-item>
         </mdc-list>
     </mdc-drawer-content>
 </mdc-drawer>

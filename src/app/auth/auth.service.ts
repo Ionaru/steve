@@ -28,6 +28,20 @@ export interface IAuthResponseData {
 })
 export class AuthService {
 
+    // private static refreshInterval;
+
+    private static defaultHeaders = {'Content-Type': 'application/x-www-form-urlencoded'};
+
+    private static scopes = [
+        // 'esi-location.read_location.v1',
+        // 'esi-location.read_ship_type.v1',
+        // 'esi-universe.read_structures.v1',
+        // 'esi-ui.write_waypoint.v1',
+        // 'esi-fittings.read_fittings.v1',
+        // 'esi-fittings.write_fittings.v1',
+        'esi-location.read_online.v1',
+    ];
+
     public static async startAuth() {
         const randomChallengeString = AuthService.createRandomString(32);
         const encodedRandomString = AuthService.base64urlEncode(randomChallengeString);
@@ -97,20 +111,6 @@ export class AuthService {
 
         return jwt.exp > maxRefreshTokenAge;
     }
-
-    // private static refreshInterval;
-
-    private static defaultHeaders = {'Content-Type': 'application/x-www-form-urlencoded'};
-
-    private static scopes = [
-        // 'esi-location.read_location.v1',
-        // 'esi-location.read_ship_type.v1',
-        // 'esi-universe.read_structures.v1',
-        // 'esi-ui.write_waypoint.v1',
-        // 'esi-fittings.read_fittings.v1',
-        // 'esi-fittings.write_fittings.v1',
-        'esi-location.read_online.v1',
-    ];
 
     private static createRandomString(bytes: number) {
         const bytesArray = new Uint8Array(bytes);
